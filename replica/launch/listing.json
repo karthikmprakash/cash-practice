@@ -1,0 +1,16 @@
+{
+  "avoid": ["SimplePractice", "Simple Practice"],
+  "app_store": {
+    "name": "CashPractice",
+    "subtitle": "Chart, pay, superbill",
+    "promotional_text": "A web chart for one private-pay clinician. Schedule the day, sign the note, record the payment, download a superbill.",
+    "description": "CashPractice is a web chart for one clinician who does not bill insurance.\n\nOpen today. Book the session. Write a SOAP, DAP, or free note and sign it. Record cash, a transfer, or a card payment on your own Stripe account. At the end of the month, download a superbill for the dates you choose.\n\nClients finish intake and consent from a private link. You can export the practice as JSON, CSV, and a note PDF.\n\nSolo is $29 a month or $290 a year. Cancel from settings.\n\nThis is a responsive website with a home-screen icon. It is not a native phone app.",
+    "keywords": "intake,consent,receipts,clinician,calendar,reminders,export,ledger,privatepay",
+    "whats_new": "Day and week calendar, signed notes, and a downloadable superbill."
+  },
+  "google_play": {
+    "title": "CashPractice",
+    "short_description": "Chart, schedule, and superbills for one private-pay clinician.",
+    "full_description": "CashPractice is a web chart for one clinician who does not bill insurance.\n\nOpen today. Book the session. Write a SOAP, DAP, or free note and sign it. Record cash, a transfer, or a card payment on your own Stripe account. Download a superbill for the dates you choose.\n\nClients finish intake from a private link. Export the practice as JSON, CSV, and a note PDF.\n\nSolo is $29 a month or $290 a year. Cancel from settings.\n\nThis listing is for the website. It is not a native phone app."
+  }
+}

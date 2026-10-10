@@ -17,6 +17,13 @@ node_modules/
 dist/
 build/
 
+# Local database and browser tests
+data/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
 # OS / editor
 .DS_Store
 *.log

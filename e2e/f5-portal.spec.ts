@@ -1,0 +1,30 @@
+import { expect, test } from "@playwright/test";
+import { signUpPractice, watch } from "./support";
+
+test("client completes intake from a token link without an account", async ({ page, browser }) => {
+  const problems = watch(page);
+  await signUpPractice(page, `portal.${Date.now()}@example.com`);
+  await page.getByRole("link", { name: "Add a client" }).click();
+  await page.getByLabel("Client name").fill("River Sample");
+  await page.getByRole("button", { name: "Save client" }).click();
+  await page.getByRole("button", { name: "Create intake link" }).click();
+  const href = await page.getByRole("link", { name: /\/portal\// }).getAttribute("href");
+  expect(href).toMatch(/^\/portal\/[a-f0-9]{64}$/);
+  const guest = await browser.newContext();
+  const guestPage = await guest.newPage();
+  const guestProblems = watch(guestPage);
+  await guestPage.goto(href!);
+  await guestPage.getByLabel("What brings you in").fill("I want a standing weekly session.");
+  await guestPage.getByLabel("Emergency contact").fill("Sam Sample");
+  await guestPage.getByLabel("Emergency phone").fill("555-0199");
+  await guestPage.getByRole("checkbox", { name: "I agree" }).check();
+  await guestPage.getByLabel("Type your name to sign").fill("River Sample");
+  await guestPage.getByRole("button", { name: "Submit intake" }).click();
+  await expect(guestPage.getByText("Intake received")).toBeVisible();
+  await guest.close();
+  await page.goto(page.url().split("?")[0]);
+  await expect(page.getByText("Intake complete")).toBeVisible();
+  await expect(page.getByText("I want a standing weekly session.")).toBeVisible();
+  expect(problems).toEqual([]);
+  expect(guestProblems).toEqual([]);
+});

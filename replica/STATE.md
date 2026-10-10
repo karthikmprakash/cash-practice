@@ -1,28 +1,27 @@
 # Build state
 
 Machine-readable truth is `replica/features.json` (run `python3 tools/status.py`).
-This file is the human/agent narrative that survives context compaction.
 
 ## Current phase
-recon (not started)
+done (11/11 verified, tools/verify.sh --strict passed)
 
 ## Phases
-- [ ] recon        -> replica/recon-map.md
-- [ ] architect    -> replica/architecture.md
-- [ ] design       -> replica/design/tokens.json + tokens.css
-- [ ] build        -> screens from the recon map
-- [ ] backend      -> auth, db, payments, integrations
-- [ ] test         -> e2e specs green
-- [ ] diff         -> parity score recorded
-- [ ] entrepreneur -> what users of the reference app hate, fixed in ours
-- [ ] brand        -> name + identity (no copied assets)
-- [ ] launch       -> landing page + store listing
+- [x] recon        -> replica/recon-map.md
+- [x] architect    -> replica/architecture.md
+- [x] design       -> replica/design/tokens.json + tokens.css
+- [x] build        -> screens from the recon map
+- [x] backend      -> auth, db, payments, integrations
+- [x] test         -> e2e specs green
+- [x] diff         -> parity 95.2
+- [x] entrepreneur -> replica/fixes.md
+- [x] brand        -> CashPractice, pine on paper
+- [x] launch       -> landing page and store listing
 - (deploy: only once the human supplies a domain)
 
 ## Last session summary
-(none yet)
+All eleven features verified. Strict gate passed. Browser check walked signup, the agreement, and a new client chart on a narrow layout.
 
 ## Next 3 concrete actions
-1. Run replica-recon against the reference app per replica/features.json -> reference.recon_from
-2. Write replica/recon-map.md and replica/architecture.md
-3. Start F1 via tools/record.py
+1. Signed BAAs and a covered video host.
+2. Stripe test-mode Checkout with the human's keys.
+3. Deliver the reminder outbox.

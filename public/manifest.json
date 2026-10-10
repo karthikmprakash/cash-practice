@@ -1,0 +1,9 @@
+{
+  "name": "CashPractice",
+  "short_name": "CashPractice",
+  "start_url": "/today",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#0c4f3e",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

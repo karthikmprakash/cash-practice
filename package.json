@@ -1,0 +1,38 @@
+{
+  "name": "cashpractice",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "build": "node scripts/guard-client-secrets.mjs && NEXT_TELEMETRY_DISABLED=1 next build",
+    "start": "NEXT_TELEMETRY_DISABLED=1 next start",
+    "test": "vitest run && playwright test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@daily-co/daily-js": "^0.84.0",
+    "better-sqlite3": "^12.4.1",
+    "next": "^15.5.4",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "stripe": "^18.5.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.55.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.18.8",
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,32 @@
+feature,area,priority,original,clone,notes
+Client chart,clients,must,yes,yes,encrypted fields
+Day and week calendar linked to the chart,calendar,must,yes,yes,
+Book a session from the chart,calendar,must,yes,yes,
+SOAP DAP and free notes,notes,must,yes,yes,
+Sign a note with author timestamp and hash,notes,must,yes,yes,signed notes are immutable
+Audit log on client reads and writes,compliance,must,yes,yes,triggers block update and delete
+Intake and consent by token link,portal,must,yes,yes,no client account
+Portal messages,portal,should,yes,yes,
+Card payment on the practitioner Stripe account,payments,must,yes,yes,no platform fee
+Cash and transfer ledger,payments,must,yes,yes,
+Superbill PDF for a date range,billing,must,yes,yes,
+Third-party video room per session,video,should,yes,yes,Daily SDK or Jitsi external API
+Full export JSON CSV and note PDF,portability,must,yes,yes,tested at 100 clients
+Reminder schedule idempotent,reminders,must,yes,yes,queued not delivered
+Encryption audit and TLS baseline,compliance,must,yes,yes,
+No claims or clearinghouse,scope,must,yes,yes,asserted by test
+Business associate step at signup,onboarding,must,yes,yes,counsel has not reviewed the text
+One-click plan cancel,billing,should,no,yes,records cancel_requested
+Income snapshot,billing,should,no,yes,settings ledger
+Mark attended cancelled or no-show,calendar,should,no,yes,
+Stay signed in,auth,should,no,yes,14-day httpOnly cookie
+No AI note generator,scope,must,no,yes,left out on purpose
+SMS delivery,reminders,could,yes,partial,jobs are queued; no SMS vendor key
+Calendar sync,calendar,could,yes,no,not in the MVP contract
+Group practice and supervision,practice,could,yes,skip,out of scope
+Insurance claims eligibility and remits,billing,must,yes,skip,the omission is the product
+E-prescribe,clinical,could,yes,skip,partner licence
+AI scribe,notes,could,yes,skip,out of scope
+Native mobile app,platforms,could,yes,no,responsive web and a manifest
+Treatment planner content,notes,could,yes,skip,licensed content
+CPT long descriptors,billing,could,yes,skip,AMA text is not shipped
