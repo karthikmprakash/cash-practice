@@ -67,7 +67,7 @@ Recon them from: public marketing and pricing pages, public help centre and docs
 - **Never** scrape behind a login, and never use anyone else's account or credentials.
 - If a flow cannot be observed publicly, design your own and log the decision.
 - Rebuild the *job* it does, in your own design system, with your own assets and your own words.
-- `Recon the **onboarding flow and the price/packaging pages** specifically — §7 of the PRD shows the cheap tier is already occupied, so the wedge is trust, migration and the superbill job, not being cheapest.`
+- Recon the **onboarding flow and the price/packaging pages** specifically — §7 of the PRD shows the cheap tier is already occupied, so the wedge is trust, migration and the superbill job, not being cheapest.
 
 ## 6. Skill order
 
@@ -95,7 +95,7 @@ Python helpers are stdlib-only: `python3 .claude/skills/replica-design/contrast.
 - **Never type, generate or store passwords, card numbers, or live API keys.** Write `.env.example` with variable names and no values. The human fills `.env.local` (already gitignored).
 - Use **test mode** for every payment provider. Never send real emails, SMS or charges to real people.
 - Keep all generated artefacts under `replica/`.
-- `**This handles clinical data.** Encryption in transit and at rest, audit logging on every client-data read and write, no PHI in logs, secrets only in environment variables. Never use real client information — generate synthetic fixtures only. If you cannot satisfy a compliance requirement, mark it `blocked` rather than pretending.`
+- **This handles clinical data.** Encryption in transit and at rest, audit logging on every client-data read and write, no PHI in logs, secrets only in environment variables. Never use real client information — generate synthetic fixtures only. If you cannot satisfy a compliance requirement, mark it `blocked` rather than pretending.
 - Prefer boring, well-supported choices over novel ones. You are optimising for a product that survives, not a demo that impresses.
 
 ## 8. Final report — write `replica/FINAL-REPORT.md`
