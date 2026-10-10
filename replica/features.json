@@ -1,0 +1,139 @@
+{
+  "product": "CashPractice",
+  "prd": "PRD.md",
+  "stack": "TBD by replica-architect (HIPAA-defensible; encrypted at rest)",
+  "reference": {
+    "primary": "SimplePractice",
+    "secondary": [
+      "Sessions Health",
+      "Practice Better",
+      "Carepatron",
+      "Jane App",
+      "TherapyNotes"
+    ],
+    "recon_from": [
+      "public marketing + pricing pages",
+      "public help centre and docs",
+      "App Store / Play Store listings",
+      "the user's OWN trial account if one exists"
+    ],
+    "never": [
+      "copy code, logo, copy, images, fonts, or content",
+      "scrape behind a login",
+      "use anyone else's credentials",
+      "copy clinical content, note text, or client data"
+    ]
+  },
+  "features": [
+    {
+      "id": "F1",
+      "name": "Client records and appointment calendar",
+      "acceptance": "Create a client, book an appointment, see it on a day/week view; appointment links to the client chart.",
+      "verify": "e2e: create client -> book -> assert appears in calendar and on client record",
+      "status": "pending",
+      "depends_on": []
+    },
+    {
+      "id": "F2",
+      "name": "Appointment reminders",
+      "acceptance": "Reminder schedule is configurable; reminder jobs are queued with correct send time and are idempotent (no duplicate sends).",
+      "verify": "unit: reminder scheduler producing send times; assert no duplicates on re-run",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F3",
+      "name": "Notes: templates, e-signature, timestamps",
+      "acceptance": "SOAP, DAP and free-form templates save; signed note records author, UTC timestamp and a content hash; signed notes are immutable.",
+      "verify": "integration: sign note -> attempt edit -> assert rejected; assert timestamp+hash present",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F4",
+      "name": "Audit trail",
+      "acceptance": "Every read and write of client data writes an audit row (actor, action, entity, timestamp); audit rows cannot be modified or deleted through the app.",
+      "verify": "integration: perform N operations -> assert N audit rows; assert update/delete of audit rows is blocked",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F5",
+      "name": "Secure client portal: intake, consent, messaging",
+      "acceptance": "Client receives a tokenised link with no account required; completes intake and e-signs consent; practitioner sees completed artefacts attached to the client.",
+      "verify": "e2e: send intake -> complete in clean context -> assert artefacts stored against client",
+      "status": "pending",
+      "depends_on": [
+        "F1",
+        "F3"
+      ]
+    },
+    {
+      "id": "F6",
+      "name": "Take payment via the practitioner's own Stripe + record cash/transfer",
+      "acceptance": "Test-mode card payment flips the session to paid; manual cash/transfer entry records method and date; no platform fee added.",
+      "verify": "integration: Stripe test payment + manual entry; assert ledger totals reconcile",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F7",
+      "name": "Superbill generator",
+      "acceptance": "Generates a per-client superbill PDF for a date range containing client name, practitioner name and NPI/tax id, dates of service, CPT/service codes, diagnosis code, charged amount and paid amount.",
+      "verify": "render PDF -> assert ALL required fields present via text extraction; assert date-range filtering correct",
+      "status": "pending",
+      "depends_on": [
+        "F1",
+        "F6"
+      ]
+    },
+    {
+      "id": "F8",
+      "name": "Telehealth via third-party embed",
+      "acceptance": "A session can launch an embedded third-party video room from the appointment; room link is per-appointment and not guessable.",
+      "verify": "e2e: launch room -> assert unique per-appointment URL; assert dependency is an external SDK, not custom WebRTC",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F9",
+      "name": "Data export and portability",
+      "acceptance": "Full export of clients, appointments, notes and payments in an open format (CSV/JSON) plus PDF notes; export completes for a seeded 100-client dataset.",
+      "verify": "integration: seed 100 clients -> export -> assert row counts + parseability",
+      "status": "pending",
+      "depends_on": [
+        "F1",
+        "F3"
+      ]
+    },
+    {
+      "id": "F10",
+      "name": "HIPAA-defensible baseline",
+      "acceptance": "Encryption in transit and at rest; no PHI in logs; secrets only in env; BAA-required third parties are documented; production build fails if a secret is referenced client-side.",
+      "verify": "test: assert logger redaction, assert no secret strings in client bundle, assert TLS-only config",
+      "status": "pending",
+      "depends_on": [
+        "F1"
+      ]
+    },
+    {
+      "id": "F11",
+      "name": "Scope guard: no insurance billing",
+      "acceptance": "No claims, clearinghouse, eligibility or ERA/EOB code paths exist. This absence is the product thesis and must be asserted.",
+      "verify": "grep/unit: assert no claims/clearinghouse/ERA modules present",
+      "status": "pending",
+      "depends_on": []
+    }
+  ],
+  "slug": "cashpractice"
+}
