@@ -14,12 +14,15 @@ venv/
 # Node
 node_modules/
 .next/
+.next-e2e/
+.next-port-*/
 dist/
 build/
 tsconfig.tsbuildinfo
 
-# Local database and browser tests
+# Local database, backups, and browser tests
 data/
+backups/
 test-results/
 playwright-report/
 blob-report/

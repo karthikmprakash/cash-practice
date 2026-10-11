@@ -8,7 +8,10 @@
     "start": "NEXT_TELEMETRY_DISABLED=1 next start",
     "test": "vitest run && playwright test",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "compose:up": "docker compose up --build -d",
+    "compose:down": "docker compose down",
+    "backup": "sh deploy/backup.sh"
   },
   "dependencies": {
     "@daily-co/daily-js": "^0.84.0",
