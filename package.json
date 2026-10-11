@@ -15,7 +15,7 @@
     "image:bake": "docker buildx bake"
   },
   "dependencies": {
-    "@daily-co/daily-js": "^0.84.0",
+    "@daily-co/daily-js": "^0.93.0",
     "better-sqlite3": "^12.4.1",
     "next": "^15.5.4",
     "pdf-lib": "^1.17.1",
