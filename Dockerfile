@@ -8,6 +8,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY package.json package-lock.json ./
+# better-sqlite3 compiles in this stage, so each Buildx platform gets its own .node
 RUN npm ci --no-audit --no-fund
 
 FROM node:${NODE_VERSION} AS builder

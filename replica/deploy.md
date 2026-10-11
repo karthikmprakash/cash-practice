@@ -54,5 +54,5 @@ Email DNS (when Resend is connected): SPF, DKIM, DMARC `v=DMARC1; p=none; rua=ma
 
 - GitHub: https://github.com/karthikmprakash/cash-practice
 - CI: `.github/workflows/ci.yml`
-- Release: tag `v*`, `.github/workflows/release.yml`, image `ghcr.io/karthikmprakash/cash-practice`
+- Release: tag `v*`, `.github/workflows/release.yml`, image `ghcr.io/karthikmprakash/cash-practice` (`linux/amd64` and `linux/arm64`)
 - Dependabot: npm, Actions, Docker

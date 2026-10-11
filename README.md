@@ -29,9 +29,13 @@ The database is created on first boot from `src/server/schema.sql`. Keep volume 
 
 ## Releases
 
-CI on `main` and every pull request: lint, typecheck, Vitest, and a Docker build.
+CI on `main` and every pull request: lint, typecheck, Vitest, and a Docker build for `linux/amd64` and `linux/arm64`.
 
-A tag `v*` builds `ghcr.io/karthikmprakash/cash-practice`, pushes `:version`, `:major.minor`, and `:latest`, and opens a GitHub Release.
+A tag `v*` builds a multi-arch `ghcr.io/karthikmprakash/cash-practice` (`amd64` and `arm64` under one tag), pushes `:version`, `:major.minor`, and `:latest`, and opens a GitHub Release. `docker compose pull` selects the host CPU. A local `docker compose up --build` builds only the machine you are on. To bake both archs by hand:
+
+```bash
+docker buildx bake --push
+```
 
 ```bash
 git tag v0.1.0

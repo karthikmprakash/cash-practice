@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "compose:up": "docker compose up --build -d",
     "compose:down": "docker compose down",
-    "backup": "sh deploy/backup.sh"
+    "backup": "sh deploy/backup.sh",
+    "image:bake": "docker buildx bake"
   },
   "dependencies": {
     "@daily-co/daily-js": "^0.84.0",
